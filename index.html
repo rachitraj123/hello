@@ -34,6 +34,10 @@
             border-radius: 10px;
             border: none;
         }
+        .title h1{
+            width: 100%;
+            text-align: center;
+        }
         .title::before{
             content: "";
             position: absolute;
@@ -68,35 +72,100 @@
             display: flex;
             flex-direction: column;
         }
-        .div label{
+        div label{
             margin: 2rem 0;
             width: fit-content;
             font-size: 20px;
         }
-        .div input{
+        span{
+            height:30%;
+            width: 100%;
+            position: relative;
+        }
+        div .input{
             width: 100%;
             padding: 0.4rem;
-            height: 30%;
+            height: 100%;
             border-radius: 5px;
             border: none;
             position: relative;
             font-size: 20px;
+            transition: border-bottom 0.3s,ease-in-out;
+            font-weight: 500;
+
         }
-        .div input:active,.div input:hover,.div input:active{
-            border: none;
-        }
-        .div input::before:hover{
+        span::before{
             content: "";
             position: absolute;
             left: 0%;
             right: 0%;
             bottom: 0%;
-            top: 0%;
             background-color: blueviolet;
+        }
+        .div span .input:active,.div span .input:hover,.div span .input:focus{
+            border-bottom: 3px solid blueviolet;
         }
         .specialdiv{
             padding:0.2rem;
             margin: 0.5rem;
+        }
+        .specialdiv{
+            height: 20%;
+            padding:  1rem 2rem;
+            width:100%;
+            background-color: rgb(242, 245, 247);
+            border-radius: 10px;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            margin-left:0;
+        }
+        .specialdiv label{
+            margin:1rem 0;
+        }
+        .specialdiv input{
+            width: fit-content;
+            margin: 0.4rem 0;
+            height:30px;
+        }
+        .specialdiv span{
+            display: flex;
+            align-items: center;
+        }
+        .specialdiv span input{
+            margin-right: 0.5rem;
+        }
+        #div6 span{
+            display: flex;
+            align-items: center;
+        }
+        #div6 span input{
+            height: 20px;
+            width: 20px;
+        }
+        #div6 span p{
+            width: fit-content;
+            height: fit-content;
+            margin: 0 1rem;
+            font-weight: 100;
+            color: cadetblue;
+        }
+        #div6 span p sup{
+            color: blueviolet;
+        }
+        .specialdiv select{
+            border-radius: 10px;
+            padding: 0.3rem;
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .specialdiv .options{
+            border-radius: 3px;
+            padding: 0.2rem;
+        }
+        .specialdiv .options option{
+            font-weight: 300;
+            background-color: blueviolet;
         }
     </style>
 </head>
@@ -107,32 +176,56 @@
         <form action="form.py" method="post">
             <div class="div" id="div1">
                 <label for="name">Name</label>
-                <input type="text" class="name" placeholder="name" id="name" name="Username">
+                <span>
+                    <input type="text" class="name input" placeholder="name" id="name" name="Username">
+                </span>
             </div>
             <div class="div" id="div2">
                 <label for="email">Email</label>
-                <input type="email" class="email" placeholder="Email Address..." id="email" name="Email_address">
+                <span>
+                    <input type="email" class="email input" placeholder="Email Address..." id="email" name="Email_address">
+                </span>
             </div>
             <div class="div" id="div3">
                 <label for="password">Password</label>
-                <input type="password" class="password" placeholder="password" id="password" name="Password">
+                <span>
+                    <input type="password" class="password input" placeholder="password" id="password" name="Password">
+                </span>
             </div>
             <div class="div" id="div4">
                 <label for="phone_number">Phone Number</label>
-                <input type="phone_number" class="Phone_number" placeholder="Phonr_Number" id="Phone_Number" name="Phone_number">
+                <span>
+                    <input type="number" class="Phone_number input" placeholder="Phone_Number" id="Phone_Number" name="Phone_number">
+                </span>
             </div>
             <div class="specialdiv" id="div5">
                 <label for="Gender">Select your gender:</label>
-                <input type="radio" class="name"  id="name" name="gender">
-                <input type="radio" class="name"  id="name" name="gender">
-                <input type="radio" class="name"  id="name" name="gender">
+                <span>
+                    <input type="radio" class="name"  id="name" name="gender"><p>Male</p>
+                </span>
+                <span>
+                    <input type="radio" class="name"  id="name" name="gender"><p>Female</p>
+                </span>
+                <span>
+                    <input type="radio" class="name"  id="name" name="gender"><p>Transgender</p>
+                </span>
             </div>
             <div class="specialdiv" id="div6">
-                <input type="checkbox" class="checkbox"id="checkbox" name="agreed"><label for="checkbox">agreement:</label>
+                <label for="checkbox">agreement:</label>
+                <span>
+                    <input type="checkbox" class="checkbox"id="checkbox" name="agreed">
+                    <p><sup>**</sup>I agree with all the term and conditions applied on the form...</p>
+                </span>
             </div>
             <div class="specialdiv" id="div7">
-                <label for="dropdown">select your state location: </label><select name="place" id="place">
-                    <option value=""></option>
+                <label for="place">select your state location: </label>
+                <select name="place" id="place" value="" placeholder="location">
+                    <div class="options">
+                        <option value="Bihar">Bihar</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    </div>
                 </select>
             </div>
         </form>
