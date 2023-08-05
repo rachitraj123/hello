@@ -301,10 +301,10 @@
         </form>
     </div>
     <script>
-        var a=document.getElementById("show");
-        a.onclick=function(){
+        var a=document.getElementById("show").value
+        document.getElementById("show").onclick=function(){
             document.getElementById("password").type="text";
-            a.innerHTML="Hide";
+            document.getElementById("show").innerHTML="Hide";
         }
     </script>
 </body>
