@@ -302,10 +302,16 @@
         </form>
     </div>
     <script>
-        var a=document.getElementById("show").value
-        document.getElementById("show").onclick=function(){
-            document.getElementById("password").type="text";
-            document.getElementById("show").innerHTML="Hide";}
+        document.getElementById("show").onclick = function() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            this.innerHTML = "Hide";
+        } else {
+            passwordInput.type = "password";
+            this.innerHTML = "Show";
+        }
+    };
     </script>
 </body>
 </html>
