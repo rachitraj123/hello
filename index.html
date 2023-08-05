@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <title>Form</title>
+    <style>
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blueviolet;
+        }
+    </style>
 </head>
 <body>
-    <h1>This is the heading</h1>
-    <p>hello world</p>
+    <div class="container">
+        <form action="form.py" method="post">
+            <div class="div" id="div1">
+                <label for="name">Name</label>
+                <input type="text" class="name" placeholder="name" id="name" name="Username">
+            </div>
+            <div class="div" id="div2">
+                <label for="email">Email</label>
+                <input type="email" class="email" placeholder="Email Address..." id="email" name="Email_address">
+            </div>
+            <div class="div" id="div3">
+                <label for="password">Password</label>
+                <input type="password" class="password" placeholder="password" id="password" name="Password">
+            </div>
+            <div class="div" id="div4">
+                <label for="phone_number">Phone Number</label>
+                <input type="phone_number" class="Phone_number" placeholder="Phonr_Number" id="Phone_Number" name="Phone_number">
+            </div>
+            <div class="div" id="div5">
+                <label for="Gender">Select your gender:</label>
+                <input type="radio" class="name"  id="name" name="gender">
+                <input type="radio" class="name"  id="name" name="gender">
+                <input type="radio" class="name"  id="name" name="gender">
+            </div>
+            <div class="div" id="div6">
+                <label for="email">Email</label>
+                <input type="text" class="name" placeholder="name" id="name">
+            </div>
+            <div class="div" id="div7">
+                <label for="email">Email</label>
+                <input type="text" class="name" placeholder="name" id="name">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
