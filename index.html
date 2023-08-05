@@ -173,6 +173,7 @@
         }
         #div3{
             display: flex;
+            height: 25%;
         }
         #div3 button{
             padding: 1rem;
@@ -301,19 +302,16 @@
         </form>
     </div>
     <script>
-        var a=document.getElementById("show");
-        if (a=="show"){
-            a.onclick=function() {
-            document.getElementById("password").type="text";
-            a.innerHTML="Hide";
+        document.getElementById("show").onclick = function() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            this.innerHTML = "Hide";
+        } else {
+            passwordInput.type = "password";
+            this.innerHTML = "Show";
         }
-        }
-        else if (a=="hide"){
-            a.onclick=function() {
-            document.getElementById("password").type="password";
-            a.innerHTML="show";
-        }
-        }
+    };
     </script>
 </body>
 </html>
