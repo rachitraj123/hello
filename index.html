@@ -90,17 +90,9 @@
             border: none;
             position: relative;
             font-size: 20px;
-            transition: border-bottom 0.3s,ease-in-out;
+            transition: border-bottom 0.5s,ease-in-out;
             font-weight: 500;
 
-        }
-        span::before{
-            content: "";
-            position: absolute;
-            left: 0%;
-            right: 0%;
-            bottom: 0%;
-            background-color: blueviolet;
         }
         .div span .input:active,.div span .input:hover,.div span .input:focus{
             border-bottom: 3px solid blueviolet;
@@ -134,6 +126,7 @@
         }
         .specialdiv span input{
             margin-right: 0.5rem;
+            height: 40px;
         }
         #div6 span{
             display: flex;
@@ -153,19 +146,88 @@
         #div6 span p sup{
             color: blueviolet;
         }
+        /* #div3 span::before{
+            content: "show";
+            position: absolute;
+            right: 0%;
+            bottom: 0%;
+            border: 1px solid rgb(95, 116, 123);
+            border-radius: 10px;
+            padding: 1rem;
+            z-index: 1;
+            height: 40%;
+            transition: 0.3s;
+        } */
+        /* #div3 span:hover::before{
+            cursor: pointer;
+            background-color: rgb(162, 16, 118);
+            color: azure;
+            border: none;
+            padding: 0.9rem;
+        } */
+        #div3 span{
+            width: 100%;
+        }
+        #div3 input{
+            width: 80%;
+        }
+        #div3{
+            display: flex;
+        }
+        #div3 button{
+            padding: 1rem;
+            margin-bottom: 0.3rem;
+            border-radius: 5px;
+            text-align: center;
+            vertical-align: top;
+            font-size: 15px;
+            border: none;
+        }
+        #div3 button:hover{
+            cursor: pointer;
+            background-color: blueviolet;
+            color: antiquewhite;
+        }
         .specialdiv select{
             border-radius: 10px;
             padding: 0.3rem;
             font-size: 20px;
             font-weight: 300;
+            position: relative;
+            background-color: rgb(78, 0, 151);
+            opacity: 0.9;
+            color: antiquewhite;
         }
         .specialdiv .options{
-            border-radius: 3px;
+            border-radius: 6px;
             padding: 0.2rem;
         }
         .specialdiv .options option{
             font-weight: 300;
-            background-color: blueviolet;
+            border-radius: 30px;
+        }
+        option:hover,option:active{
+            background-color: rgb(255, 255, 255);
+        }
+        .button{
+            background-color: transparent;
+            padding: 1rem 0;
+            width:100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            height: 80px;
+        }
+        .submit{
+            width: 40%;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border: none;
+            background-color: rgb(122, 66, 174);
+            color: antiquewhite;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -177,29 +239,32 @@
             <div class="div" id="div1">
                 <label for="name">Name</label>
                 <span>
-                    <input type="text" class="name input" placeholder="name" id="name" name="Username">
+                    <input type="text" class="name input" placeholder="name" id="name" name="Username" required>
                 </span>
             </div>
             <div class="div" id="div2">
                 <label for="email">Email</label>
                 <span>
-                    <input type="email" class="email input" placeholder="Email Address..." id="email" name="Email_address">
+                    <input type="email" class="email input" placeholder="Email Address..." id="email" name="Email_address" required>
                 </span>
             </div>
             <div class="div" id="div3">
                 <label for="password">Password</label>
                 <span>
-                    <input type="password" class="password input" placeholder="password" id="password" name="Password">
+                    <input type="password" class="password input" placeholder="password" id="password" name="Password" required>
+                    <button class="show" id="show" type="button" name="show" value="show">
+                        show
+                    </button>
                 </span>
             </div>
             <div class="div" id="div4">
                 <label for="phone_number">Phone Number</label>
                 <span>
-                    <input type="number" class="Phone_number input" placeholder="Phone_Number" id="Phone_Number" name="Phone_number">
+                    <input type="number" class="Phone_number input" placeholder="Phone_Number" id="Phone_Number" name="Phone_number" required>
                 </span>
             </div>
             <div class="specialdiv" id="div5">
-                <label for="Gender">Select your gender:</label>
+                <label for="Gender"required>Select your gender:</label>
                 <span>
                     <input type="radio" class="name"  id="name" name="gender"><p>Male</p>
                 </span>
@@ -213,13 +278,13 @@
             <div class="specialdiv" id="div6">
                 <label for="checkbox">agreement:</label>
                 <span>
-                    <input type="checkbox" class="checkbox"id="checkbox" name="agreed">
+                    <input type="checkbox" class="checkbox"id="checkbox" name="agreed" value="" required>
                     <p><sup>**</sup>I agree with all the term and conditions applied on the form...</p>
                 </span>
             </div>
             <div class="specialdiv" id="div7">
                 <label for="place">select your state location: </label>
-                <select name="place" id="place" value="" placeholder="location">
+                <select name="place" id="place" value="" placeholder="location" required>
                     <div class="options">
                         <option value="Bihar">Bihar</option>
                         <option value="Uttar Pradesh">Uttar Pradesh</option>
@@ -228,5 +293,27 @@
                     </div>
                 </select>
             </div>
+            <div class="button">
+                <button class="submit" type="submit">
+                    Submit
+                </button>
+            </div>
         </form>
-    </div></body></html>
+    </div>
+    <script>
+        var a=document.getElementById("show");
+        if (a=="show"){
+            a.onclick=function() {
+            document.getElementById("password").type="text";
+            a.innerHTML="Hide";
+        }
+        }
+        else if (a=="hide"){
+            a.onclick=function() {
+            document.getElementById("password").type="password";
+            a.innerHTML="show";
+        }
+        }
+    </script>
+</body>
+</html>
