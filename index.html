@@ -44,7 +44,7 @@
             right: 0%;
             bottom: 0%;
             left: 0%;
-            background-color: rgb(193, 82, 236);
+            background-color: rgb(109, 30, 140);
             z-index: 1;
             height: 4px;
             border-radius: 4px;
@@ -211,10 +211,34 @@
             color: antiquewhite;
             font-weight: 300;
         }
+        .theme{
+            border-radius: 20px;
+            border: 2px solid lightgray;
+            width: 40px;
+            height: fit-content;
+            margin-top: -20px;
+            margin-left: -20px;
+            background-color: rgb(127, 7, 138);
+            display: flex;
+            justify-content: end;
+        }
+        .button1{
+            border-radius: 50%;
+            width: 20px;
+            border: 1px solid lightgray;
+            background-color: aliceblue;
+            height: 20px;
+            cursor: pointer;
+            float: right;
+        }
     </style>
 </head>
-<body><div class="container">
+<body id="body">
+    <div class="container">
         <div class="title">
+            <button class="theme" id="theme">
+                <div class="button1" id="button1"></div>
+            </button>
             <h1>Form Ragistration</h1>
         </div>
         <form action="form.py" method="post">
@@ -294,6 +318,16 @@
             this.innerHTML = "Show";
         }
     };
+    document.getElementById("theme").onclick=function(){
+        if (document.getElementById("body").style.backgroundColor=="rgb(214, 181, 245)"){
+            document.getElementById("body").style.backgroundColor="black";
+            this.style.justifycontent="end";
+        }
+        else{
+            document.getElementById("body").style.backgroundColor="rgb(214, 181, 245)";
+            this.style.justifycontent="start";
+        };
+    }
     </script>
 </body>
 </html>
