@@ -211,7 +211,7 @@
             color: antiquewhite;
             font-weight: 300;
         }
-        .theme{
+        #theme{
             border-radius: 20px;
             border: 2px solid lightgray;
             width: 40px;
@@ -220,7 +220,7 @@
             margin-left: -20px;
             background-color: rgb(127, 7, 138);
             display: flex;
-            justify-content: end;
+            cursor: pointer;
         }
         .button1{
             border-radius: 50%;
@@ -228,8 +228,6 @@
             border: 1px solid lightgray;
             background-color: aliceblue;
             height: 20px;
-            cursor: pointer;
-            float: right;
         }
     </style>
 </head>
@@ -321,11 +319,11 @@
     document.getElementById("theme").onclick=function(){
         if (document.getElementById("body").style.backgroundColor=="rgb(214, 181, 245)"){
             document.getElementById("body").style.backgroundColor="black";
-            this.style.justifycontent="end";
+            document.getElementById("button1").style.marginLeft="15px";
         }
         else{
             document.getElementById("body").style.backgroundColor="rgb(214, 181, 245)";
-            this.style.justifycontent="start";
+            document.getElementById("button1").style.marginLeft="0";
         };
     }
     </script>
